@@ -1,0 +1,124 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+/**
+ * Created by Ashikur Rahaman on 10-Dec-16.
+ */
+
+    public class GameApp {
+
+        private JPanel mainPanel;
+        private JRadioButton paperRadioButton;
+        private JRadioButton scissorRadioButton;
+        private JRadioButton scissorRadioButton1;
+        private JRadioButton paperRadioButton1;
+        private JRadioButton rockRadioButton1;
+        private JRadioButton rockRadioButton;
+        private JLabel Player1;
+        private JLabel Player2;
+        private JLabel Result;
+         private JButton CheakButton;
+
+
+    ButtonGroup bg1 = new ButtonGroup( );
+
+    {
+
+            bg1.add(rockRadioButton);
+            bg1.add(paperRadioButton);
+            bg1.add(scissorRadioButton);
+
+        }
+        ButtonGroup bg2=new ButtonGroup() ;
+        {
+            bg2.add(rockRadioButton1);
+            bg2.add(paperRadioButton1);
+            bg2.add(scissorRadioButton1);
+        }
+
+        public GameApp() {
+
+
+            CheakButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (rockRadioButton.isSelected() &&rockRadioButton1.isSelected() )
+                    {
+                        Player1.setText("Rock");
+                        Player2.setText("Rock");
+                        Result.setText("Tie");
+
+                    }
+                    else if (paperRadioButton.isSelected() && paperRadioButton1.isSelected() )
+                    {
+                        Player1.setText("Paper");
+                        Player2.setText("Paper");
+                        Result.setText("Tie");
+                    }
+                    else if (scissorRadioButton.isSelected() && scissorRadioButton1.isSelected() )
+                    {
+                        Player1.setText("Scissor");
+                        Player2.setText("Scissor");
+                        Result.setText("Tie");
+                    }
+                    else if (rockRadioButton.isSelected() && paperRadioButton1.isSelected() )
+                    {
+                        Player1.setText("Rock");
+                        Player2.setText("Paper");
+                        Result.setText("Player 2 Win");
+                    }
+                    else if (rockRadioButton.isSelected() && scissorRadioButton1.isSelected() )
+                    {
+                        Player1.setText("Rock");
+                        Player2.setText("Scissor");
+                        Result.setText("Player 1 win");
+                    }
+
+                    else if (paperRadioButton.isSelected() && rockRadioButton1.isSelected() )
+                    {
+                        Player1.setText("Paper");
+                        Player2.setText("Rock");
+                        Result.setText("Player 1 Win");
+                    }
+                   else if (paperRadioButton.isSelected() && scissorRadioButton1.isSelected() )
+                    {
+                        Player1.setText("Paper");
+                        Player2.setText("Scissor");
+                        Result.setText("Player 2 Win");
+
+                    }
+                    else if (scissorRadioButton.isSelected() && rockRadioButton1.isSelected()  )
+                    {
+                        Player1.setText("Scissor");
+                        Player2.setText("Rock");
+                        Result.setText("Player 2 win");
+
+                    }
+                    else if (scissorRadioButton.isSelected() && paperRadioButton1.isSelected())
+                    {
+                        Player1.setText("Scissor");
+                        Player2.setText("Paper");
+                        Result.setText("Player 1 Win");
+                    }
+                }
+            });
+        }
+
+
+
+        public static void main(String[] args) {
+
+            JFrame frame = new JFrame("Game App");
+            frame.setContentPane(new GameApp().mainPanel);
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.pack();
+            frame.setVisible(true);
+
+
+        }
+
+
+
+
+    }
